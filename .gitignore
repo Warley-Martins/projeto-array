@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/ProjetoArray/ProjetoArray/bin/Debug/netcoreapp3.1
+/src/ProjetoArray/ProjetoArray/obj
+/src/ProjetoArray/.vs/ProjetoArray/v16
