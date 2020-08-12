@@ -66,5 +66,13 @@ namespace ProjetoArray
             this.ListaDeInteiros[QuatidadeDeElementos] = 0;
             QuatidadeDeElementos--;
         }
+        public int this[int indice]
+        {
+            get
+            {
+                return ListaDeInteiros[indice];
+            }
+            
+        }
     }
 }
