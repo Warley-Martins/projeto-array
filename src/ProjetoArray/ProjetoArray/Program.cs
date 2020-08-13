@@ -4,32 +4,12 @@ namespace ProjetoArray
 {
     class Program
     {
-        private static ListaDeObjetosInt obj;
+        private static ListaDeObjetosGenerica<Teste> obj;
 
         static void Main(string[] args)
         {
-            obj = new ListaDeObjetosInt();
-            Console.WriteLine("Programa de implementação da lógica de uma List em um Array");
-            
-            //Teste
-            //int i = 10;
-            //obj.Adicionar(i);
-            //obj.Adicionar(i);
-            //obj.Adicionar(i);
-            //obj.Adicionar(i);
-            //obj.Adicionar(i);
-            //obj.Adicionar(i);
-
-            //obj.Remover(10);
-            //obj.Remover(10);
-            //obj.Remover(10);
-            //obj.Remover(10);
-            //obj.Remover(10);
-            //for (int i2 = 0; i2 < 6; i2++)
-            //{
-            //    Console.WriteLine(obj.ListaDeInteiros[i2]);
-            //}
-            //Console.ReadLine();
+            obj = new ListaDeObjetosGenerica<Teste>();
+            Console.WriteLine("Programa de implementação da lógica de uma List");
 
             do //Inicio do loop do programa
             {
@@ -64,30 +44,32 @@ namespace ProjetoArray
         private static void PrintarMenuPrincipal()
         {
             Console.Write("\nDigite a opção desejada:" +
-                  "\n(1). Adicionar um novo elemento" +
-                  "\n(2). Adicionar varios elementos" +
-                  "\n(3). Remover um elemento" +
-                  "\n(4). Printar lista" +
-                  "\n(0). Encerrar" +
-                  "\nOpção Desejada: ");
+                          "\n(1). Adicionar um novo elemento" +
+                          "\n(2). Adicionar varios elementos" +
+                          "\n(3). Remover um elemento" +
+                          "\n(4). Printar lista" +
+                          "\n(0). Encerrar" +
+                          "\nOpção Desejada: ");
         }
         private static void AdicionarElemento()
         {
             Console.Write("\n\tAdicionando um novo elemento" +
                           "\nDigite o valor desejado: ");
-            var valorAdicionado = int.Parse(Console.ReadLine());
-            obj.Adicionar(valorAdicionado);
+            string valorAdicionado = Console.ReadLine();
+            Teste t = new Teste(valorAdicionado);
+            obj.Adicionar(t);
         }
         private static void AdicionarVarios()
         {
             Console.Write("\n\tAdicionando varios elementos" +
                           "\nDigite o valor de elementos que deseja adicionar: ");
             var tamanho = int.Parse(Console.ReadLine());
-            int[] ListaAuxiliar = new int[tamanho];
+            Teste[] ListaAuxiliar = new Teste[tamanho];
             for (int i = 0; i < tamanho; i++)
             {
                 Console.Write($"Digite o elemento {i + 1} : ");
-                ListaAuxiliar[i] = int.Parse(Console.ReadLine());
+                var nome = Console.ReadLine();
+                ListaAuxiliar[i] = new Teste(nome);
             }
             obj.AdicionarVarios(ListaAuxiliar);
         }
@@ -96,13 +78,16 @@ namespace ProjetoArray
         {
             Console.Write("\n\tRemovendo um elemento" +
                           "\nDigite o valor desejado: ");
-            var valorRemovido = int.Parse(Console.ReadLine());
-            obj.Remover(valorRemovido);
+            var valorRemovido = Console.ReadLine();
+            Teste t = new Teste(valorRemovido);
+            Console.WriteLine(t);
+            obj.Remover(t);
         }
         private static void PrintarLista()
         {
-            foreach (var item in obj.ListaDeInteiros)
+            foreach (var item in obj.ListaGenerica)
             {
+                if(item != null)
                 Console.WriteLine(item);
             }
         }

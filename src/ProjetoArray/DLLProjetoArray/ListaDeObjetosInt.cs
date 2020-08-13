@@ -4,11 +4,11 @@ using System.Text;
 
 namespace ProjetoArray
 {
-    public class ListaDeObjetosInt
+    public class ListaDeObjetosGenerica
     {
         private int QuatidadeDeElementos;
         public int[] ListaDeInteiros;
-        public ListaDeObjetosInt(int tamanhoInicial = 10)
+        public ListaDeObjetosGenerica(int tamanhoInicial = 10)
         {
             ListaDeInteiros = new int[tamanhoInicial];
             QuatidadeDeElementos = 0;
